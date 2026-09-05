@@ -75,8 +75,6 @@ The third version mixed the predicted broad E/S/G signal with its ground-truth l
   <img src="assets/model-v3-teacher-forcing.png" alt="Multi-task learning with teacher forcing architecture" width="600">
 </p>
 
-*Architecture figures are preserved from the original 2023 team presentation.*
-
 ### Notation
 
 - $Y^s = (y_1^s, y_2^s, \ldots, y_n^s)$ denotes the predicted sentiment labels for the detailed ESG indicators.
@@ -85,18 +83,6 @@ The third version mixed the predicted broad E/S/G signal with its ground-truth l
 - $Y'_{esg}$ denotes the corresponding ground-truth E/S/G labels used during teacher forcing.
 - $\alpha$ is the teacher-forcing ratio. The model combines $\alpha Y'_{esg}$ with $(1-\alpha)Y_{esg}$ before detailed classification.
 - $IC_i$ denotes the classifier head for the $i$-th detailed ESG indicator.
-
-## Results
-
-The final presentation reported the following F1 scores using 10-fold cross-validation:
-
-| Model | Mean F1 | Highest | Lowest |
-|---|---:|---:|---:|
-| Baseline | 0.38 | 0.72 | 0.16 |
-| Multi-task learning | 0.46 | 0.60 | 0.28 |
-| MTL + teacher forcing | 0.47 | 0.70 | 0.37 |
-
-Multi-task learning improved the average result and reduced the lowest fold score. Adding teacher forcing produced the highest mean F1 among the three experiments. The remaining variation across folds reflects the limited and imbalanced dataset as well as annotation inconsistency.
 
 ## Core notebooks
 
@@ -118,10 +104,6 @@ This is not the complete ESGer application repository. It focuses on the survivi
 The notebooks refer to Google Colab and Google Drive paths used during development. Because the original input files are no longer available, the experiments cannot currently be reproduced end to end from this repository alone.
 
 Some surviving artifacts also represent different stages of experimentation. For example, the final presentation describes 12 detailed categories, while some notebook code contains 22 detailed output heads. These differences are retained as part of the original experimental record rather than retroactively rewritten.
-
-## Team contribution
-
-ESGer was developed collaboratively by a five-person team. I contributed extensively to the modeling work, including BERT representations, classifier development, multi-task learning, teacher-forcing experiments, and evaluation. These components were developed through team collaboration rather than as independent work.
 
 ## Disclaimer
 
