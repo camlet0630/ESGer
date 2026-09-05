@@ -71,6 +71,15 @@ The third version mixed the predicted broad E/S/G signal with its ground-truth l
 
 *Architecture figures are preserved from the original 2023 team presentation.*
 
+### Notation
+
+- $Y^s = (y_1^s, y_2^s, \ldots, y_n^s)$ denotes the predicted sentiment labels for the detailed ESG indicators.
+- $y_i^s$ is the predicted sentiment label for the $i$-th ESG indicator.
+- $Y_{esg} = (y_e, y_s, y_g)$ denotes the model's predicted environmental, social, and governance labels.
+- $Y'_{esg}$ denotes the corresponding ground-truth E/S/G labels used during teacher forcing.
+- $\alpha$ is the teacher-forcing ratio. The model combines $\alpha Y'_{esg}$ with $(1-\alpha)Y_{esg}$ before detailed classification.
+- $IC_i$ denotes the classifier head for the $i$-th detailed ESG indicator.
+
 ## Results
 
 The final presentation reported the following F1 scores using 10-fold cross-validation:
