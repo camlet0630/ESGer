@@ -56,7 +56,7 @@ The model pipeline used `bert-base-chinese` to generate a 768-dimensional repres
 The baseline passed the BERT representation through fully connected layers and predicted the sentiment class of each detailed ESG indicator.
 
 <p align="center">
-  <img src="assets/model-v1.png" alt="Baseline classifier architecture" width="760">
+  <img src="assets/model-v1.png" alt="Baseline classifier architecture" width="600">
 </p>
 
 ### Version 2: Multi-task learning
@@ -64,7 +64,7 @@ The baseline passed the BERT representation through fully connected layers and p
 The second version introduced an auxiliary task that predicted the paragraph's broad E/S/G dimensions. This auxiliary signal was combined with the shared representation for detailed indicator classification.
 
 <p align="center">
-  <img src="assets/model-v2-mtl.png" alt="Multi-task learning architecture" width="760">
+  <img src="assets/model-v2-mtl.png" alt="Multi-task learning architecture" width="600">
 </p>
 
 ### Version 3: Multi-task learning with teacher forcing
@@ -72,7 +72,7 @@ The second version introduced an auxiliary task that predicted the paragraph's b
 The third version mixed the predicted broad E/S/G signal with its ground-truth label during training. The teacher-forcing ratio controlled how much ground-truth information was supplied to the detailed prediction stage.
 
 <p align="center">
-  <img src="assets/model-v3-teacher-forcing.png" alt="Multi-task learning with teacher forcing architecture" width="760">
+  <img src="assets/model-v3-teacher-forcing.png" alt="Multi-task learning with teacher forcing architecture" width="600">
 </p>
 
 *Architecture figures are preserved from the original 2023 team presentation.*
