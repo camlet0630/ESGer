@@ -84,24 +84,28 @@ The third version mixed the predicted broad E/S/G signal with its ground-truth l
 - $\alpha$ is the teacher-forcing ratio. The model combines $\alpha Y'_{esg}$ with $(1-\alpha)Y_{esg}$ before detailed classification.
 - $IC_i$ denotes the classifier head for the $i$-th detailed ESG indicator.
 
-## Core notebooks
+## Project notebooks
 
-This repository preserves the core modeling notebooks that remain from the original system. They cover text representation, ESG relevance filtering, model experiments, and the multi-task teacher-forcing architecture.
+This repository preserves the surviving notebooks from the original system. They cover news collection, text representation, ESG relevance filtering, model experiments, the multi-task teacher-forcing architecture, and company-level score calculation.
 
 | Notebook | Purpose |
 |---|---|
+| [`news_collection.ipynb`](news_collection.ipynb) | Collects corporate news from Taiwanese news websites and prepares source data for the analysis pipeline. |
 | [`bert_embedding.ipynb`](bert_embedding.ipynb) | Prepares model labels and generates Chinese BERT paragraph embeddings. |
 | [`esg_relevance_filter.ipynb`](esg_relevance_filter.ipynb) | Experiments with filtering ESG-related and unrelated paragraphs. |
 | [`esg_model_experiments.ipynb`](esg_model_experiments.ipynb) | Contains the main ESG classification and cross-validation experiments. |
 | [`multitask_teacher_forcing.ipynb`](multitask_teacher_forcing.ipynb) | Implements the multi-task and teacher-forcing model design. |
+| [`esg_score_calculation.ipynb`](esg_score_calculation.ipynb) | Cleans labeled news data, aggregates detailed ESG indicators, and calculates company-level scores. |
 
 These notebooks preserve the original code and experiment structure. Saved execution outputs were removed to keep the repository focused on the core implementation.
 
 ## Repository scope
 
-This is not the complete ESGer application repository. It focuses on the surviving model-side modules; the original crawler, labeled datasets, trained checkpoints, scoring implementation, and user interface are not included.
+This is not the complete ESGer application repository. It focuses on the surviving data collection, modeling, and scoring modules; the original labeled datasets, trained checkpoints, and user interface are not included.
 
 The notebooks refer to Google Colab and Google Drive paths used during development. Because the original input files are no longer available, the experiments cannot currently be reproduced end to end from this repository alone.
+
+The news collection notebook also depends on the structure of external websites as they existed during development. Its scraping logic may require changes if those sites have since been redesigned.
 
 Some surviving artifacts also represent different stages of experimentation. For example, the final presentation describes 12 detailed categories, while some notebook code contains 22 detailed output heads. These differences are retained as part of the original experimental record rather than retroactively rewritten.
 
